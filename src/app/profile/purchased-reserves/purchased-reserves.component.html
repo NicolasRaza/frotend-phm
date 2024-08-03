@@ -1,0 +1,16 @@
+<div *ngIf="lodgingsBooked === null || lodgingsBooked.length === 0; else elseBlock"  class="no-reservations">
+  <p>Aun no tiene reservas</p>
+</div>
+<ng-template #elseBlock>
+  <div class="card-area">
+
+    <ng-container *ngFor="let lodging of lodgingsBooked ; let i = index">
+      <div class="card-reserved">
+        <app-dig-card [button_qualify]="button_qualify" [i]="i" [lodging]="lodging.lodging" [capacity]="lodging.guests" [totalCost]="lodging.totalCost" [showGuest]=true [disableRedirect]="disableRedirect" (qualifyPost) = "openDialog($event)">
+      </app-dig-card>
+     </div>
+    </ng-container>
+  
+  </div>
+
+</ng-template>

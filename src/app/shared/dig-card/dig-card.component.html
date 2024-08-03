@@ -1,0 +1,58 @@
+<div class="dig-card-container" [routerLink]="disableRedirect ? null : ['/detail', lodging.id]"
+  [queryParams]="{ fromDate: fromDate, toDate: toDate, capacity: capacity }">
+  <mat-card class="dig-card">
+    <mat-card-header class="dig-card-header">
+      <div class="mat-header-text">
+        <div class="header-style">
+        <mat-card-title class="dig-card-title">{{
+          lodging.getName()
+        }}</mat-card-title>
+        <mat-card-subtitle class="dig-card-subtitle"
+          >Ubicacion: {{ lodging.getLocation() }}</mat-card-subtitle
+        >
+        </div>
+        <div *ngIf="button_delete">
+          <mat-icon class="button-delete" (click)="onDeleteClick(lodging)"
+            >delete</mat-icon
+          >
+        </div>
+      </div>
+    </mat-card-header>
+    <img
+      mat-card-image
+      class="mat-card-image"
+      [src]="lodging.getImage()"
+      [alt]="lodging.getName()"
+    />
+    <mat-card-content class="dig-card-content">
+      <p class="dig-card-content-description">
+        {{ lodging.getDescription() }}
+      </p>
+    </mat-card-content>
+    <mat-divider class="mat-divider"></mat-divider>
+    <mat-card-footer class="dig-card-footer">
+      <div class="cost-container">
+        <p>
+          Costo por noche: {{ lodging.getCostPerNight() | number : "1.2-2" }} $
+        </p>
+        <p>
+          Costo total:
+          {{ showGuest ? (totalCost | number : "1.2-2" ) : lodging.getCostPerDay(toDate, fromDate) | number : "1.2-2" }} $
+        </p>
+      </div>
+      <div class="datil-container">
+        <p class="dig-card-score">
+          <mat-icon class="mat-icon-star">star</mat-icon
+          >{{ lodging.getScore() | number : "1.0-2" }}
+        </p>
+        <p class="dig-card-capacity">
+          <mat-icon>person</mat-icon>{{ showGuest ? capacity: lodging.getCapacity() }}
+        </p>
+      </div>
+    </mat-card-footer>
+    <ng-content></ng-content>
+    <div *ngIf="button_qualify">
+      <button mat-raised-button color="primary"  class="qualify" (click)="onQualifyClick(i)" >Calificar</button>
+    </div>
+  </mat-card>
+</div>

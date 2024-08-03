@@ -1,0 +1,70 @@
+.parent{
+    margin-top: 30px;
+    min-height: 15em;
+  }
+
+
+img {
+    width: 10vh;
+    height: 10vh;
+    border-radius: 100%!important;
+    object-fit: cover;
+  }
+
+.friend-card{
+    margin: 10px 0 0 10px;
+    display: flex;
+    gap: 30px
+}
+.style-name {
+  margin: 0 80px;
+  text-align: center;
+  font-weight: bold;
+  width: 300px;
+}
+.style-card{
+    display: flex;
+    align-items: center;
+}
+
+.close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color : white !important;
+    background-color: var(--primary-color) ;
+    cursor: pointer;
+    border-radius: 100%;
+}
+
+.add{
+    position: absolute;
+    right: 1%;
+}
+.friend-paginator {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+::ng-deep .mat-mdc-snack-bar-container {
+    --mdc-snackbar-container-shape: 6em;
+    --mdc-snackbar-supporting-text-line-height: 0.2em;
+  
+    .mat-mdc-snack-bar-label {
+      display: flex;
+      justify-content: center;
+    }
+  
+    &.error-snackbar {
+      --mdc-snackbar-container-color: var(--error-color);
+      --mat-mdc-snack-bar-button-color: #fff;
+      --mdc-snackbar-supporting-text-color: #000000!important;
+    }
+  
+    &.success-snackbar {
+      --mdc-snackbar-container-color: var(--secondary-color);
+      --mat-mdc-snack-bar-button-color: #fff;
+      --mdc-snackbar-supporting-text-color: #000000!important;
+    }
+  }
+  

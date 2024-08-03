@@ -1,0 +1,262 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+@import "@angular/material/theming";
+// Fonts imports
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+
+/*------------------------------Colores viejos-------------------------*/
+// $aphm-primary: (
+//   50: #ece7fc,
+//   100: #d0bdf8,
+//   200: #a282f3,
+//   300: #7d5cef,
+//   400: #6223eb,
+//   500: #bb86fc,
+//   600: #a276e3,
+//   700: #865bbf,
+//   800: #6a419a,
+//   900: #522d7d,
+//   A100: #d2c2ff,
+//   A200: #ad94ff,
+//   A400: #8946ff,
+//   A700: #6d00ff,
+//   contrast: (
+//     50: #000000,
+//     100: #000000,
+//     200: #000000,
+//     300: #ffffff,
+//     400: #ffffff,
+//     500: #000000,
+//     600: #ffffff,
+//     700: #ffffff,
+//     800: #ffffff,
+//     900: #ffffff,
+//     A100: #000000,
+//     A200: #ffffff,
+//     A400: #ffffff,
+//     A700: #ffffff,
+//   ),
+// );
+
+// $aphm-secondary: (
+//   50: #e8fffe,
+//   100: #c2f7f6,
+//   200: #7ce1d9,
+//   300: #03d0be,
+//   400: #00b6a4,
+//   500: #03dac6,
+//   600: #00a37d,
+//   700: #007b5a,
+//   800: #005338,
+//   900: #003f28,
+//   A100: #ffffff,
+//   A200: #d7ffff,
+//   A400: #a4ffff,
+//   A700: #8bffff,
+//   contrast: (
+//     50: #000000,
+//     100: #000000,
+//     200: #000000,
+//     300: #000000,
+//     400: #000000,
+//     500: #000000,
+//     600: #ffffff,
+//     700: #ffffff,
+//     800: #ffffff,
+//     900: #ffffff,
+//     A100: #000000,
+//     A200: #000000,
+//     A400: #000000,
+//     A700: #000000,
+//   ),
+// );
+
+$aphm-primary: (
+  50: #e0e3f7,
+  100: #b3b8eb,
+  200: #868edf,
+  300: #5b63d4,
+  400: #3d44c9,
+  500: #636ad9,
+  600: #293ebd,
+  700: #23349c,
+  800: #1c2a7b,
+  900: #161f5e,
+  A100: #b3b8eb,
+  A200: #8086e0,
+  A400: #4d53d4,
+  A700: #333cbf,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$aphm-secondary: (
+  50: #f5e7fb,
+  100: #d7baf5,
+  200: #b08ae9,
+  300: #896be0,
+  400: #6e4fd4,
+  500: #bb86fc,
+  600: #4b27b3,
+  700: #3c1f8e,
+  800: #2d1669,
+  900: #210f4d,
+  A100: #e1c2ff,
+  A200: #ae94ff,
+  A400: #7b46ff,
+  A700: #612bff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #000000,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$airphm-grupo-1-primary: mat.define-palette($aphm-primary);
+$airphm-grupo-1-accent: mat.define-palette($aphm-secondary, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$airphm-grupo-1-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$airphm-grupo-1-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $airphm-grupo-1-primary,
+      accent: $airphm-grupo-1-accent,
+      warn: $airphm-grupo-1-warn,
+    ),
+  )
+);
+
+$airphm-grupo-1-theme-dark: mat.define-dark-theme(
+  (
+    color: (
+      primary: $airphm-grupo-1-primary,
+      accent: $airphm-grupo-1-accent,
+      warn: $airphm-grupo-1-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($airphm-grupo-1-theme);
+
+.dark-theme-mode {
+  @include angular-material-theme($airphm-grupo-1-theme-dark);
+}
+
+/* You can add global styles to this file, and also import other style files */
+
+//Colores viejos
+// :root {
+//   --primary-color: #bb86fc;
+//   --primary-variant-color: #3700B3;
+//   --secondary-color: #03dac6;
+//   --background-color: #eeeeee;
+//   --error-color: #CF6679;
+// }
+
+:root {
+  --primary-color: #636AD9;
+  --primary-variant-color: #A2A6F2;
+  --secondary-color: #BB86FC;
+  --background-color: #EEEEEE;
+  --error-color: #da1d40;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Customize website's scrollbar like Mac OS
+Not supports in Firefox and IE */
+
+/* total width */
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 8px;
+  margin: 3px;
+}
+
+/* background of the scrollbar except button or resizer */
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* scrollbar itself */
+::-webkit-scrollbar-thumb {
+  background-color: #babac0;
+  border-radius: 16px;
+  /* border: 4px solid #fff; */
+}
+
+/* set button(top and bottom of the scrollbar) */
+::-webkit-scrollbar-button {
+  display:none;
+}
+
+
+// Styles default
+
+.airphm-logo-font {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+}
+
+.unselectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                        supported by Chrome, Opera and Firefox */
+}
+
+.cursor-pointer:hover {
+  cursor: pointer;
+}

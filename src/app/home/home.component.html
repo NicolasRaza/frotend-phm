@@ -1,0 +1,43 @@
+<nav-bar></nav-bar>
+
+<div class="home-container">
+  <app-filter-bar
+    (filtersApplied)="onFiltersApplied($event)"
+    class="filter-bar-selector"
+  ></app-filter-bar>
+
+  <app-side-filter
+    class="side-filter-selector"
+    (selectedOptionChange)="setScoreFilter($event)"
+    (filterRemove)="onFiltersApplied($event)"
+  ></app-side-filter>
+
+  <div *ngIf="homeLoading; else loadedContent" class="home-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <ng-template #loadedContent>
+    <app-card-area
+      class="card-area-selector"
+      [lodgings]="lodgingsToShow()"
+      [error]="error"
+      [toDate]="filters.todate"
+      [fromDate]="filters.fromdate"
+      [capacity]="filters.capacity"
+    ></app-card-area>
+
+    <mat-paginator
+      #paginator
+      class="home-paginator"
+      (page)="handlePageEvent($event)"
+      [length]="length"
+      [pageSize]="pageSize"
+      [disabled]="disabled"
+      [showFirstLastButtons]="showFirstLastButtons"
+      [hidePageSize]="hidePageSize"
+      [pageIndex]="pageIndex"
+      aria-label="Select page"
+    >
+    </mat-paginator>
+  </ng-template>
+</div>

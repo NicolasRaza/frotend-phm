@@ -1,0 +1,132 @@
+
+.parent {
+  background-color: rgba(242, 242, 242, 0.618);
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  height: 100vh;
+}
+.profile-birthDates{
+  margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+  // flex-direction: column;
+}
+  
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15em;
+  white-space: nowrap;
+  box-shadow: -5px 0 5px -5px rgba(0, 0, 0, 0.1) inset;
+
+}
+
+
+// .profile-image{
+//     width: 10em;
+//     height: 10em;
+//     border-radius: 50%;
+//     display: block;                       
+// }
+
+  img {
+    width: 11em;
+    height: 11em;
+    border-radius: 100%!important;
+    object-fit: cover;
+  }
+
+.profile-name{
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.5em;
+    white-space: nowrap;
+}
+
+.profile-saldo{
+  font-size: 1.5em;
+  white-space: nowrap;
+}
+
+
+.actions{
+  background-color: rgb(236, 235, 235);
+ 
+}
+.displayed-actions{
+  margin-top: 1.9em;
+  background-color: white;
+  height: 2.5em;
+  margin-left: 0;
+  display: flex;
+  gap: 5em;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  //border-bottom: 2px solid black;
+}
+
+.link-containers {
+  margin-bottom: 0.9em;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin-top: 1em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.link-containers:hover {
+  color: var(--primary-color);
+}
+
+.link-containers.active {
+  color: var(--primary-color);
+}
+
+.boton{
+  width: 10em;
+  height: 3em;
+  margin-top: 1em;
+  font-weight: bold;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.profile-age{
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 0.5em;
+  white-space: nowrap;
+}
+
+.editing {
+  display: flex;
+  align-items: center;
+
+}
+.save{
+  display: flex;
+  align-items: center;  
+  margin-left: 15px;
+}
+.button-edit{
+  padding-top: 15px;
+}
+
+.user-data{
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+.button-picture{
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  font-size: 10px;
+}
+.button-size{
+  font-size: 20px;
+}

@@ -1,0 +1,12 @@
+.profile-image{
+   display: flex;
+   justify-content: center;
+   margin: 10px;
+}
+
+img{
+  width: 20vh;
+  height: 20vh;
+  border-radius: 100%!important;
+  object-fit: cover;
+}

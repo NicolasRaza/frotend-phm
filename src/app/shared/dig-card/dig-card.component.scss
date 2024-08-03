@@ -1,0 +1,112 @@
+@-webkit-keyframes slide-fwd-center {
+  0% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  100% {
+    -webkit-transform: translateZ(160px);
+    transform: translateZ(160px);
+  }
+}
+@keyframes slide-fwd-center {
+  0% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  100% {
+    -webkit-transform: translateZ(160px);
+    transform: translateZ(160px);
+  }
+}
+
+
+.dig-card-container {
+  display: block;
+}
+
+.dig-card {
+  width: 20em;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.dig-card-header {
+  margin-bottom: 10px;
+}
+
+.mat-header-text {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  .dig-card-title,
+  .dig-card-subtitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.dig-card-score,
+.dig-card-capacity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dig-card-footer {
+  padding: 10px 10px 0 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dig-card-content-description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dig-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.mat-divider {
+  margin: 10px 15px 0 15px;
+}
+
+.button-delete {
+  color: rgb(234, 12, 12);
+  cursor: pointer;
+}
+.qualify
+    {
+      display: flex;
+      justify-self: center;
+      align-self: center;
+      width: 80%;
+      height: 2em;
+      margin:  0 auto 1em auto;
+      &:hover {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+      }
+    }
+.mat-icon-star {
+  color: gold;
+}
+
+.mat-card-image {
+  height: 200px;
+}
+
+.header-style{
+  display: flex;
+  flex-direction: column;
+  max-width: 270px;
+}
+

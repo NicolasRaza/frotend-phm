@@ -1,0 +1,17 @@
+<h2 mat-dialog-title class="letterStyle">Agregar una reseña</h2>
+<div mat-dialog-content >
+  <mat-form-field class="heightText">
+    <mat-label>Comentario</mat-label>
+    <textarea matInput [(ngModel)]="comment" class="heightComment"></textarea>
+  </mat-form-field>
+  <mat-form-field class="widthComment">
+    <mat-label>Puntaje</mat-label>
+    <mat-select [(ngModel)]="score">
+      <mat-option *ngFor="let option of scoreOptions" [value]="option">{{ option }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="dflex">
+  <button mat-raised-button color="primary" class="widthBoton" [disabled]="!isFormValid()" (click)="onSaveClick()">Guardar</button>
+  <button mat-raised-button color="accent" class="widthBoton" (click)="onCancelClick()">Cancelar</button>
+</div>

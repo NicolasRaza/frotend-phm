@@ -1,0 +1,28 @@
+.filter-bar-content {
+  justify-content: center;
+  background-color: var(--background-color);
+  height: auto;
+  padding: 1em 0 !important;
+}
+
+.filter-bar-form {
+  display: contents;
+}
+
+.filter-input-group {
+  align-items: center;
+  width: 20%;
+}
+
+.search-btn {
+  background-color: var(--primary-color);
+  margin: 0 15px;
+}
+
+.filter-input-group {
+  background-color: white;
+  margin: 0.5em;
+  .mat-mdc-form-field-subscript-wrapper {
+    margin-bottom: -1.25em;
+  }
+}

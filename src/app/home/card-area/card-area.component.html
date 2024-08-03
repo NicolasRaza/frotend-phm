@@ -1,0 +1,24 @@
+<div class="card-area">
+  <div *ngIf="error; else noContent">
+    Error del servidor al cargar los alojamientos
+  </div>
+  <ng-template #noContent>
+    <ng-container
+      *ngIf="lodgings === null || lodgings.length === 0; else elseBlock"
+    >
+      <p>No hay alojamientos disponibles</p>
+    </ng-container>
+  </ng-template>
+  <ng-template #elseBlock>
+    <ng-container #elseBlock *ngFor="let lodging of lodgings">
+      <app-dig-card
+        [lodging]="lodging"
+        [fromDate]="fromDate"
+        [disableRedirect]="disableRedirect" 
+        [toDate]="toDate"
+        (click)="onCardClick(lodging.id)"
+        [capacity]="capacity"
+      ></app-dig-card>
+    </ng-container>
+  </ng-template>
+</div>

@@ -1,0 +1,93 @@
+<mat-toolbar color="primary">
+  <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button> -->
+  <div class="conteiner-logo">
+    <span class="logo airphm-logo-font unselectable cursor-pointer" routerLink="/home">AirPHM</span>
+    <div class="stars-container">
+      <mat-icon class="star" *ngFor="let star of stars; let i = index" [matTooltip]="campeones[i]" (click)="goToFifaPage(i)">
+        star
+      </mat-icon>
+    </div>
+  </div>
+
+  <span class="spacer"></span>
+
+  <div class="right-options">
+    <button
+      mat-icon-button
+      class="option-button"
+      aria-label="Example icon-button with heart icon"
+      routerLink="/home"
+      matTooltip="Inicio">
+        <span class="material-symbols-outlined option-icon" routerLinkActive="selected">home</span>
+    </button>
+    <!-- <button
+      mat-icon-button
+      class="option-button"
+      aria-label="Example icon-button with share icon"
+      matTooltip="Carrito">
+      <span class="material-symbols-outlined option-icon"
+          [matBadge]="numberOfNotificationsString()"
+          matBadgeColor="warn"
+          matBadgeSize="small"
+          [matBadgeHidden]="!isAnyNotification()">
+        shopping_cart
+        </span>
+    </button> -->
+    <button mat-icon-button class="option-button" aria-label="Example icon-button with share icon" *ngIf="!logedIn" matTooltip="Ingresar" routerLink="/authentication">
+      <span class="material-symbols-outlined option-icon">person</span>
+    </button>
+
+    <!-- Image of user profile -->
+    <img mat-card-avatar [cdkMenuTriggerFor]="menu" class="user-profile-image cursor-pointer" [src]="userLoged.profileImageURL ? userLoged.profileImageURL : '../../../assets/imgs/default-user-image-2.png'" alt="" *ngIf="logedIn">
+  </div>
+</mat-toolbar>
+
+
+<ng-template #menu>
+  <div class="example-menu" cdkMenu>
+    <div class="menu-user-info">
+      {{userLoged.userName}}
+    </div>
+
+    <div class="menu-actions">
+      <button class="example-menu-item" cdkMenuItem routerLink="/profile/purchased-reserves">
+        Perfil
+        <span class="material-symbols-outlined">person</span>
+      </button>
+
+      <button class="example-menu-item" cdkMenuItem routerLink="/profile/friends">
+        Amigos
+        <span class="material-symbols-outlined">group</span>
+      </button>
+
+      <button class="example-menu-item" cdkMenuItem routerLink="/profile/purchased-reserves">
+        Reservas
+        <span class="material-symbols-outlined">calendar_month</span>
+      </button>
+
+      <button class="example-menu-item" cdkMenuItem routerLink="/profile/posts">
+        Mis publicaciones
+        <span class="material-symbols-outlined">article</span>
+      </button>
+
+      <button class="example-menu-item" cdkMenuItem routerLink="/profile/comments">
+        Comentarios
+        <span class="material-symbols-outlined">comment</span>
+      </button>
+
+      <div class="divider"></div>
+    </div>
+
+    <div class="menu-actions last-section">
+      <button
+        class="example-menu-item"
+        cdkMenuItem
+        (click)="logout()">
+          Cerrar sesión
+          <span class="material-symbols-outlined">logout</span>
+      </button>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,27 @@
+<mat-icon  (click)="closedModal()" class="close" >close</mat-icon>
+<div class="parent">
+    <div class="friend-card" *ngFor="let friend of friends">
+        <div class="img-section">
+            <img src="{{friend.getImage()}}">
+        </div>
+        <div class="style-card style-name">
+            <p class="name">{{friend.userName}}</p>
+        </div >
+        <div  class="style-card">
+        <button mat-raised-button color="primary" (click)="addFriend(friend)" class="add" >Agregar</button>
+      </div>
+    </div>
+    <mat-paginator
+      #paginator
+      class="friend-paginator"
+      (page)="handlePageEvent($event)"
+      [length]="length"
+      [pageSize]="pageSize"
+      [disabled]="disabled"
+      [showFirstLastButtons]="showFirstLastButtons"
+      [hidePageSize]="hidePageSize"
+      [pageIndex]="pageIndex"
+      aria-label="Select page"
+    >
+    </mat-paginator>
+</div>

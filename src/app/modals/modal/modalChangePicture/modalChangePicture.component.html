@@ -1,0 +1,12 @@
+<div>
+  <div class="profile-image">
+    <img [src]="imgUrl" alt="Imagen">
+  </div>
+  <div class="updateImg">
+    <mat-form-field>
+      <mat-label>URL de la imagen</mat-label>
+      <input matInput [(ngModel)]="imgUrl" name="imageUrl" >
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="button" (click)="loadImage()">Cargar imagen</button>
+  </div>
+</div>

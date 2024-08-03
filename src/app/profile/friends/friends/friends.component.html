@@ -1,0 +1,26 @@
+
+<div *ngIf="amigos.length === 0" class="no-friends-message" class="no-friends">
+  <p>Aun no tiene amigos </p>
+</div>
+<div *ngIf="friendLoading; else loadedContent" class="home-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+  <ng-template #loadedContent>
+    <div class="parent">
+     
+      <div class="friend-card" *ngFor="let amigo of amigos">
+        <div class="img-section">
+          <img src="{{ amigo.getImage() }}">
+        </div>
+        <div class="text">
+          <p class="name">{{ amigo.userName }}</p>
+          <p>{{ amigo.nationality }}</p>
+        </div>
+        <mat-icon class="icon" (click)="deleteFriend(amigo)">delete</mat-icon>
+      </div>
+      <button class="button-add" (click)="openModal()" mat-fab color="primary">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </ng-template>
+  

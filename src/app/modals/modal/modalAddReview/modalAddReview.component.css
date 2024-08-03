@@ -1,0 +1,22 @@
+.heightText{
+    height: 150px;
+    width: 550px;
+    overflow: auto;
+    
+}
+.letterStyle{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.heightComment{
+    height: 90px;
+}
+.widthComment{
+    width: 550px;
+}
+.dflex{
+    display: flex;
+    justify-content: center;
+}
+.widthBoton{
+    width: 15em;
+}

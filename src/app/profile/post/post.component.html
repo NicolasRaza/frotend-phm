@@ -1,0 +1,27 @@
+
+<div *ngIf="lodgings === null || lodgings.length === 0; else elseBlock" class="no-lodgings">
+  <p>Sin reservas publicadas</p>
+</div>
+<ng-template #elseBlock>
+
+  <div *ngIf="lodgings"> 
+  <div class="card-area"  >
+  
+  
+    <ng-container *ngFor="let lodging of lodgings" >
+      <div class="mypost">
+        <app-dig-card 
+          [button_delete]="button_delete" 
+          [lodging]="lodging" 
+          [disableRedirect]="disableRedirect" 
+          (deletePost) = "deletePost($event)"
+        ></app-dig-card>
+      </div>    
+    </ng-container>
+  
+  </div>
+  <button class="button-add"  (click)="openModal()" mat-fab color="primary">
+    <mat-icon>add</mat-icon>
+  </button> 
+  </div> 
+</ng-template>

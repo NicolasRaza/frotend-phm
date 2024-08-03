@@ -1,0 +1,50 @@
+
+
+.card-area {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  gap: 3em;
+  padding: 2.5em 2.5em 0 2.5em;
+  overflow: auto;
+  height: 85vh;
+}
+
+.mypost{
+  display: flex;
+  
+}
+
+.no-lodgings{
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.button-add{
+  position: fixed;
+  top: 90%;
+  right: 1%;
+}
+
+::ng-deep .mat-mdc-snack-bar-container {
+  --mdc-snackbar-container-shape: 6em;
+  --mdc-snackbar-supporting-text-line-height: 0.2em;
+
+  .mat-mdc-snack-bar-label {
+    display: flex;
+    justify-content: center;
+  }
+
+  &.error-snackbar {
+    --mdc-snackbar-container-color: var(--error-color);
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #000000!important;
+  }
+
+  &.success-snackbar {
+    --mdc-snackbar-container-color: var(--secondary-color);
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #000000!important;
+  }
+}

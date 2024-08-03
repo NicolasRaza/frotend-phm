@@ -1,0 +1,12 @@
+<div *ngIf="comment === null || comment.length === 0; else elseBlock" class="no-comments">
+  <p>Sin comentarios publicados</p>
+</div>
+<ng-template #elseBlock>
+  <div class="card">
+    <div  *ngFor="let comentarioItem of comment">
+      <app-card-comment class="comment" [comentario]="comentarioItem" (deleteComment)="eliminarComentario($event)" [reviewId]="comentarioItem.reviewId"></app-card-comment>
+    </div>
+  </div>
+</ng-template>
+
+

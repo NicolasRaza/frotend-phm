@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="row">
+    <div ></div>
+    <div class="col1" *ngIf="!isInProfile(); else elseBlock2">
+      <img mat-card-image class = "img" [src]="comentario.photoUrl  " [alt]="comentario.nameAuthor" />
+    </div>
+    <ng-template class="col1" #elseBlock2>
+      <img mat-card-image class = "img" [src]="comentario.lodgingOwnerPhotoUrl ? comentario.lodgingOwnerPhotoUrl : '../../../assets/imgs/default-user-image-2.png'" [alt]="comentario.lodgingOwner" />
+    </ng-template>
+
+    <div class="col2">
+      <h4 *ngIf="!isInProfile(); else elseBlock3">De: {{comentario.username}}</h4>
+
+      <ng-template #elseBlock3>
+        <h4>Para: {{comentario.lodgingOwner}}</h4>
+      </ng-template>
+
+
+      <p class="date-comment" *ngIf="!isInProfile(); else elseBlock">Publicado en {{comentario.publishedComment | date: 'MMMM y'}}</p>
+
+      <ng-template #elseBlock>
+       <p fxflex >Hospedaje "{{comentario.lodgingName}}"</p>
+      </ng-template>
+   </div>
+   <div class="col3">
+      <p class="calification"><mat-icon class="star">star</mat-icon><b class="number-stars">{{comentario.score}}</b></p>
+      <p class="icon" *ngIf="isInProfile()" (click)="deleteCommentEvent()"><mat-icon>delete</mat-icon></p>
+   </div>
+  </div>
+  <p class="text">
+    {{comentario.comment}}
+  </p>
+</div>

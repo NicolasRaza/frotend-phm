@@ -1,0 +1,30 @@
+<div class="side-filter-container">
+  <div class="side-filter-texts">
+    <h1>Filtros</h1>
+    <mat-divider class="mat-divider"></mat-divider>
+    <h3>Puntaje</h3>
+  </div>
+
+  <mat-radio-group class="side-filter-section">
+    <mat-radio-button
+      class="side-filter-item"
+      color="primary"
+      *ngFor="let option of options"
+      [value]="option.value"
+      [checked]="option.value === selectedOption"
+      (change)="onOptionChange($event)"
+      >{{ option.label }}</mat-radio-button
+    >
+  </mat-radio-group>
+
+  <mat-chip-listbox class="side-filter-chip-list">
+    <mat-chip
+      *ngFor="let chip of chips"
+      [removable]="true"
+      (removed)="removeChip(chip)"
+    >
+      {{ chip.label | titlecase }}
+      <mat-icon matChipRemove>cancel</mat-icon>
+    </mat-chip>
+  </mat-chip-listbox>
+</div>

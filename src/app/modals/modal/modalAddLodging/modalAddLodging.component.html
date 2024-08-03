@@ -1,0 +1,77 @@
+  <h2 mat-dialog-title class="letterStyle">Ingresar detalles</h2>
+  <mat-dialog-content class="modal-content">
+    <div>
+      <div class="image-container">
+        <img [src]="defaultImageUrl" alt="Imagen">
+      </div>
+      <div class="updateImg">
+        <mat-form-field>
+          <mat-label>URL de la imagen</mat-label>
+          <input matInput [(ngModel)]="imageUrl" name="imageUrl" >
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="button" (click)="loadImage()">Cargar imagen</button>
+      </div>
+    </div>
+    <div class="detail">
+      <mat-form-field class="widthBoton">
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="nombre" name="nombre" required (input)="checkFields()">
+      </mat-form-field>
+      <mat-form-field class="widthBoton">
+        <mat-label>Descripcion</mat-label>
+        <input matInput [(ngModel)]="descripcion" name="descripcion" required (input)="checkFields()">
+      </mat-form-field>
+      <mat-form-field class="widthBoton">
+        <mat-label>Capacidad</mat-label>
+        <input matInput [(ngModel)]="capacidad" name="capacidad" type="number" min="1" required (input)="checkFields()">
+      </mat-form-field>
+      <mat-form-field class="widthBoton">
+        <mat-label>Habitaciones</mat-label>
+        <input matInput [(ngModel)]="habitaciones" name="habitaciones" type="number" min="1" required (input)="checkFields()">
+      </mat-form-field>
+      <mat-form-field class="widthBoton">
+        <mat-label>Baños</mat-label>
+        <input matInput [(ngModel)]="banios" name="banios" type="number" min="1" required (input)="checkFields()">
+      </mat-form-field>    
+      <mat-form-field class="widthBoton">
+        <mat-label>Costo Base</mat-label>
+        <input matInput [(ngModel)]="costoBase" name="costoBase" type="number" min="1" required (input)="checkFields()">
+      </mat-form-field>
+      <mat-form-field class="widthBoton">
+        <mat-label>Servicio de limpieza</mat-label>
+        <mat-select [(ngModel)]="limpieza" name="limpieza" (selectionChange)="checkFields()">
+          <mat-option value="true">Si</mat-option>
+          <mat-option value="false">No</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="widthBoton">
+        <mat-label>Tipo de alojamiento</mat-label>
+        <mat-select [(ngModel)]="alojamientoType" name="alojamientoType" (selectionChange)="checkFields()">
+          <mat-option value="Building">Building</mat-option>
+          <mat-option value="House">House</mat-option>
+          <mat-option value="Hut">Hut</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="widthBoton">
+        <mat-label>País</mat-label>
+        <input matInput [(ngModel)]="pais" name="pais" required (input)="checkFields()">
+      </mat-form-field>
+      <mat-form-field class="widthBoton">
+        <mat-label>Dirección</mat-label>
+        <input matInput [(ngModel)]="direccion" name="direccion" required (input)="checkFields()">
+      </mat-form-field>
+    
+      <mat-form-field class="widthBoton">
+        <mat-label>Aspectos</mat-label>
+        <input matInput [(ngModel)]="aspecto" name="aspecto" required (input)="checkFields()">
+      </mat-form-field>
+      <mat-form-field class="widthBoton">
+        <mat-label>Detalles</mat-label>
+        <input matInput [(ngModel)]="detalle" name="detalle" required (input)="checkFields()">
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions class="styleButtons">
+    <button mat-raised-button color="primary"  class="widthBoton" [disabled]="disableButton" (click)="onSubmit()">Guardar</button>
+    <button mat-raised-button color="primary"  class="widthBoton" (click)="onCancel()">Cancelar</button>
+  </mat-dialog-actions>

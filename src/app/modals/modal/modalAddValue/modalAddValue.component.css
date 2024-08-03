@@ -1,0 +1,13 @@
+.letterStyle{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.dflex{
+    display: flex;
+    justify-content: center;
+}
+.widthInput{
+    width: 300px;
+}
+.widthBoton{
+    width: 10em;
+}

@@ -1,0 +1,44 @@
+<div class="container-border">
+  <div class="row">
+    <h4><b>Costo por noche</b></h4> <h3>${{lodging.baseCost  | number : "1.2-2"}}</h3>
+    <h4><b>Costo total</b></h4> <h3>${{costoTotal() | number : "1.2-2"}}</h3>
+  </div>
+  <p class="data">{{lodging.capacity}} huespedes - {{lodging.numOfRooms}} dormitorios - {{lodging.numOfBathrooms}} baños</p>
+  <div class="container-border-inside">
+    <div class="container">
+      <mat-form-field class="filter-input-group" appearance="outline">
+        <mat-label>Desde</mat-label>
+        <input matInput [matDatepicker]="pickerFrom" placeholder="From" [(ngModel)]="fromDate" [min]="currentDate" (ngModelChange)="onFromDateChange()">
+        <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+        <mat-datepicker #pickerFrom></mat-datepicker>
+      </mat-form-field>
+      <hr class = "col2">
+      <mat-form-field class="filter-input-group" appearance="outline">
+        <mat-label>Hasta</mat-label>
+        <input matInput [matDatepicker]="pickerTo" placeholder="To" [(ngModel)]="toDate" [min]="minToDate" [disabled]="!toDate">
+        <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+        <mat-datepicker #pickerTo></mat-datepicker>
+      </mat-form-field>
+      
+    </div>
+    <mat-divider></mat-divider>
+    <div class="container">
+      <mat-form-field class="filter-input-group" appearance="outline">
+      <mat-label>Pasajeros</mat-label>
+      <input
+        matInput
+        [(ngModel)]="capacity" 
+        name="capacity"
+        id="passengers-filter-input"
+        class="filter-bar-input"
+        type="number"
+        [min]="1"
+        [max]="lodging.capacity"
+        (ngModelChange)="onFromDateChange()"
+      />
+      <mat-icon matSuffix class="filter-bar-icon">person</mat-icon>
+    </mat-form-field>
+    </div>
+  </div>
+  <button mat-raised-button color="primary"  class="reservar-button" (click)="doBooking()" [disabled]="!onFromDateChange()">Reservar</button>
+</div>

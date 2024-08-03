@@ -1,0 +1,69 @@
+<form>
+  <div class="card-title">
+    <h1>Registrarse</h1>
+  </div>
+
+  <div class="inputs-container">
+    <div class="form-group" [ngClass]="{'error': data[0].error}">
+      <label for="email">Correo electronico</label
+      >
+      <input name="email"
+        (keydown)="onInputChange()"
+        (focusout)="onFocusOut($event)"
+        [(ngModel)]="data[0].text"
+        type="email"
+        class="form-control"
+        id="email-input"
+        placeholder="tumail@dominio.com"
+      />
+
+      <div class="error-message">
+        {{data[0].errorMessage}}
+      </div>
+    </div>
+
+    <div class="form-group" [ngClass]="{'error': data[1].error}">
+      <label for="password">Contraseña</label
+      >
+      <div class="password-input">
+        <input name="password"
+          (keydown)="onInputChange()"
+          (focusout)="onFocusOut($event)"
+          [(ngModel)]="data[1].text"
+          [type]="!this.passwordHidden ? 'text' : 'password'"
+          class="form-control password"
+          id="password-input"
+          placeholder="Digite su contraseña"
+        />
+        <!-- Add eye to show or unshow password in input that activate and desactivate -->
+        <mat-icon
+          type="button"
+          class="password-toggle-button"
+          [attr.aria-label]="passwordHidden ? 'Mostrar contraseña' : 'Ocultar contraseña'"
+          (click)="togglePasswordVisibility()"
+        >
+          {{ passwordHidden ? 'visibility_off' : 'visibility' }}
+        </mat-icon>
+      </div>
+
+      <div class="error-message">
+        {{data[1].errorMessage}}
+      </div>
+    </div>
+
+    <div class="link-containers">
+      <p>¿Tienes algun problema? <a href="https://github.com/phm-unsam/frontend-2023-grupo-1-1" target="_blank">Contactanos</a></p>
+      <a routerLink="/authentication/login">¿Ya tienes una cuenta?</a>
+    </div>
+
+  </div>
+
+  <button
+    mat-raised-button
+    color="primary"
+    class="auth-submit-button"
+    [disabled]="!isFormValid()"
+    (click)="register($event)"
+  >Registrar</button>
+
+</form>

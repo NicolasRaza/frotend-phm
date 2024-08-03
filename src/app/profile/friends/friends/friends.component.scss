@@ -1,0 +1,91 @@
+.parent {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  padding: 5%;
+
+}
+
+
+.no-friends{
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.friend-card {
+  display: flex;
+  align-items: center;
+  background-color: rgb(250, 250, 250) ;
+  border-color: rgb(240, 240, 240);
+  border-style: solid;
+  border-radius: 5%;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1em;
+  padding: 1em 0;
+  width: 55%;
+}
+
+.icon {
+  width: 20%;
+}
+
+.name{
+  font-weight: bold;
+}
+
+.icon {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 25px;
+  color: rgb(234, 12, 12);
+  align-self: center; /* Aquí se ajusta la altura vertical del icono */
+}
+
+img {
+  width: 10vh;
+  height: 10vh;
+  border-radius: 100%!important;
+  object-fit: cover;
+  margin-left: 1em;
+}
+
+
+.button-add{
+  position: fixed;
+  top: 90%;
+  right: 1%;
+}
+.no-friends{
+  display: flex;
+  justify-content: center;
+}
+
+::ng-deep .mat-mdc-snack-bar-container {
+  --mdc-snackbar-container-shape: 6em;
+  --mdc-snackbar-supporting-text-line-height: 0.2em;
+
+  .mat-mdc-snack-bar-label {
+    display: flex;
+    justify-content: center;
+  }
+
+  &.error-snackbar {
+    --mdc-snackbar-container-color: var(--error-color);
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #000000!important;
+  }
+
+  &.success-snackbar {
+    --mdc-snackbar-container-color: var(--secondary-color);
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #000000!important;
+  }
+}

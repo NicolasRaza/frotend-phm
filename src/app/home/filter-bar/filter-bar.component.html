@@ -1,0 +1,100 @@
+<mat-toolbar class="filter-bar-content" color="secondary">
+  <form
+    [formGroup]="myForm"
+    (ngSubmit)="onSubmit($event)"
+    class="filter-bar-form"
+  >
+    <mat-form-field class="filter-input-group" appearance="outline">
+      <mat-label>Destino</mat-label>
+      <input
+        type="text"
+        class="filter-bar-input"
+        name="destination"
+        id="destiny-filter-input"
+        matInput
+        [formControl]="myControl"
+        [matAutocomplete]="auto"
+        formControlName="destination"
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let option of filteredOptions | async"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-icon matSuffix class="filter-bar-icon">place</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="filter-input-group" appearance="outline">
+      <mat-label>Desde</mat-label>
+      <input
+        class="filter-bar-input"
+        name="fromdate"
+        id="fromdate-filter-input"
+        matInput
+        [matDatepicker]="pickerFromDate"
+        readonly
+        formControlName="fromDate"
+        [min]="currentDate"
+        (dateInput)="enableToDate()"
+      />
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="pickerFromDate"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #pickerFromDate></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="filter-input-group" appearance="outline">
+      <mat-label>Hasta</mat-label>
+      <input
+        class="filter-bar-input"
+        name="todate"
+        id="fromdate-filter-input"
+        matInput
+        [matDatepicker]="pickerToDate"
+        readonly
+        formControlName="toDate"
+        [min]="myForm.get('fromDate')?.value || currentDate"
+      />
+      <mat-error *ngIf="!myForm.get('toDate')?.hasError('min')"
+        >Fecha invalida</mat-error
+      >
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="pickerToDate"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #pickerToDate></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="filter-input-group" appearance="outline">
+      <mat-label>Capacidad</mat-label>
+      <input
+        type="text"
+        matInput
+        name="capacity"
+        id="passengers-filter-input"
+        class="filter-bar-input"
+        type="number"
+        formControlName="capacity"
+        [min]="passengersMinValue"
+      />
+      <mat-error *ngIf="myForm.get('capacity')?.hasError('minPassengers')"
+        >Cantidad de pasajeros invalida</mat-error
+      >
+      <mat-icon matSuffix class="filter-bar-icon">person</mat-icon>
+    </mat-form-field>
+
+    <button
+      mat-mini-fab
+      class="search-btn"
+      color="primary"
+      type="submit"
+      [disabled]="myForm.invalid"
+    >
+      <mat-icon>search</mat-icon>
+    </button>
+  </form>
+</mat-toolbar>

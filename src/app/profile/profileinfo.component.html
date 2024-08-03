@@ -1,0 +1,74 @@
+<nav-bar ></nav-bar>
+
+
+<div class="parent" *ngIf="profile">
+  <div class="profile-info">
+    <div class="profile-birthDates">
+     
+      <img class="profile-image" src="{{profile.getImage()}}">
+      <button mat-icon-button class="button-picture" (click)="openEdit()">
+        <mat-icon class="button-size">edit</mat-icon>
+      </button>
+      
+    </div>
+      <mat-card [ngClass]="'editing'">
+      <div *ngIf="!isEditing" class="profile-name">{{profile.userName}}</div>
+      
+      
+      
+      
+      <div *ngIf="isEditing" class="user-data">
+
+
+        <!-- <mat-form-field>
+          <input matInput [(ngModel)]="profile.profileImageURL" placeholder="Ingrese el enlace">
+        </mat-form-field> -->
+
+
+        <mat-form-field>
+          <input matInput [(ngModel)]="profile.userName" placeholder="Nombre">
+        </mat-form-field>
+      </div>
+      <div *ngIf="isEditing">
+        <button mat-raised-button  class="save" color="primary" (click)="saveUsername()">Guardar</button>
+      </div>
+      <div class="button-edit" *ngIf="!isEditing">
+        <button mat-icon-button (click)="isEditing = true">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
+      </mat-card>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="displayedBirthDay" (ngModelChange)="saveDate()">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      
+    <p class="profile-age"><strong>Edad</strong> {{profile.getAge()}} años</p>
+    <mat-form-field>
+      <mat-label>Pais</mat-label>
+      <mat-select [(ngModel)]="selectedNacionalidad" (ngModelChange)="changeNationality($event)">
+        <mat-option *ngFor="let nacionalidad of nacionalidades" [value]="nacionalidad.value">{{nacionalidad.display}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="profile-saldo"><strong> Crédito</strong> ${{profile.balance}}</div>
+    <button mat-raised-button color="primary"  (click)="openDialog()" class="boton">Sumar crédito</button>
+  </div>
+  <div class="actions">
+    <div class="displayed-actions">
+      <div *ngFor="let button of sideNavButtons"
+        [ngClass]="'link-containers ' + (button.active ? 'active':'')"
+        [routerLink]="'purchased-reserves'"
+        routerLinkActive="active-link"
+        (click)="navButtonClick(button.id)">
+       <p class="ml-10 text color-primary">{{button.name}}</p>
+      </div>
+    </div>
+    <div>
+     <router-outlet></router-outlet>
+    </div> 
+  </div>                        
+</div>
+
+<!--Como poner una fecha en el datepicker?-->
